@@ -1,11 +1,11 @@
 import React from "react";
 import { Row} from "react-bootstrap";
-import { NavBar } from "./Navbar/Navbar";
+import { ShoppingCart } from "./ShoppingCart/ShoppingCart";
 
 export const Header = () => {
     return (
         <Row>
-            <NavBar></NavBar>
+            <ShoppingCart></ShoppingCart>
         </Row>
     )
 };

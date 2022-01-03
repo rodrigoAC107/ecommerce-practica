@@ -10,10 +10,11 @@ export const ListProduct = () => {
       {products.length < 0 ? (
         <div>... Cargando</div>
       ) : (
-        products.map((item) => (
+        products.map((item, index) => (
           <CardGroup>
             <Col>
               <Product
+                key={index}
                 title={item.title}
                 description={item.description}
                 image={item.image}

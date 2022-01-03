@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { useLiveQuery } from "dexie-react-hooks";
-import { NavBarItem } from "./NavbarItem";
+import { ShoppingCartItem } from "./ShoppingCartItem";
 import db from "../../app/db/db";
+import { Link } from "react-router-dom";
 
-export const NavBar = () => {
+export const ShoppingCart = () => {
   const [productsCart, setProductsCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -36,17 +37,21 @@ export const NavBar = () => {
       className="mb-4"
     >
       <Container>
-        <Navbar.Brand href="#">Ecommerce</Navbar.Brand>
+        <Link to={"/"}>
+          <Navbar.Brand href="#">Ecommerce</Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="Carrito" id="collasible-nav-dropdown">
               {productsCart?.map((product) => {
-                return <NavBarItem key={product.id} item={product} />;
+                return <ShoppingCartItem key={product.id} item={product} />;
               })}
               <NavDropdown.Divider />
               <NavDropdown.Item>
-              Total: $ {totalPrice}
+                <Link to={"/purchase"}>
+                  Total: $ {totalPrice}
+                </Link>
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
