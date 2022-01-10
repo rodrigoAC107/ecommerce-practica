@@ -37,9 +37,9 @@ export const ShoppingCart = () => {
       className="mb-4"
     >
       <Container>
-        <Link to={"/"}>
-          <Navbar.Brand href="#">Ecommerce</Navbar.Brand>
-        </Link>
+        <Navbar.Brand>
+          <Link to={"/"}>Ecommerce</Link>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -49,9 +49,7 @@ export const ShoppingCart = () => {
               })}
               <NavDropdown.Divider />
               <NavDropdown.Item>
-                <Link to={"/purchase"}>
-                  Total: $ {totalPrice}
-                </Link>
+                <Link to={"/purchase"}>Total: $ {totalPrice}</Link>
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
