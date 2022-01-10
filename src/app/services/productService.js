@@ -1,11 +1,22 @@
-import db from "../db/db";
-
-export const getProductById = async (id) => {
-  const productById = await db.cart.get(Number(id));
-  return productById;
-};
+import api from "../clients/api";
+import routes from "../routes/fakeStoreRoutes";
 
 export const getAllProducts = async () => {
-  const product = await db.cart.toArray();
-  return product;
-};
+    return api.get(routes.getAllProducts())
+}
+
+export const getProductById = async (idProduct) => {
+    return api.get(routes.getProductById(idProduct));
+}
+
+export const addNewPorduct = async (product) => {
+    return api.post(routes.addNewPorduct(), product);
+}
+
+export const getAllCategories = async () => {
+    return api.get(routes.getAllCategories());
+}
+
+export const getProductByCategory = async (category) => {
+    return api.get(routes.getProductByCategories(category));
+}

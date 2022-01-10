@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { CardGroup, Col, Row } from "react-bootstrap";
-import { getAllProducts } from "../../app/services/productService";
+import { getProductByCategory } from "../../app/services/productService";
 import { Product } from "./Product";
 
-export const ListProduct = () => {
+export const FilterListProduct = ({category}) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    getAllProducts()
+    getProductByCategory(category)
       .then(resp => setProducts(resp));
-  }, [])
+  }, [category])
 
   return (
     <Row xs={1} md={3} lg={4} className="g-4">

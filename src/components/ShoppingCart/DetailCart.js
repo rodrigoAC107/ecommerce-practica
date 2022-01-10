@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { Table } from "react-bootstrap";
-import { getAllProducts } from "../../app/services/productService";
+import { getAllProducts } from "../../app/services/productCartService";
 
 export const DetailCart = () => {
   const [productsCart, setProductsCart] = useState([]);

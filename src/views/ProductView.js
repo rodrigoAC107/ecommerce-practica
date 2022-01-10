@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getProductById } from "../app/services/productService";
+import { getProductById } from "../app/services/productCartService";
 
 export const ProductView = ({ match }) => {
   const [productDetail, setProductDetail] = useState(null);
@@ -10,6 +10,7 @@ export const ProductView = ({ match }) => {
       .then((product) => setProductDetail(product))
       .catch((err) => console.log(err));
   }, [match]);
+  
   return (
     <div>
       <h1>{ productDetail && JSON.stringify(productDetail) }</h1>
